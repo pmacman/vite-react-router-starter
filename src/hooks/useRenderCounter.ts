@@ -23,8 +23,15 @@ export function useRenderCounter(componentName: string, isDebugging: boolean = t
   const renderCount = useRef<number>(0);
   renderCount.current++;
 
+  // Vite compatible:
   const isDev = import.meta.env.DEV === true;
+  // Node compatible:
+  // const isDev = process.env.NODE_ENV === 'development';
+
+  // Vite compatible:
   const globalLogEnabled = import.meta.env.VITE_ENABLE_RENDER_LOGS === 'true';
+  // Create React App compatible:
+  // const globalLogEnabled = process.env.REACT_APP_ENABLE_RENDER_LOGS === 'true'
 
   if (isDev && globalLogEnabled && isDebugging) {
     console.log(
