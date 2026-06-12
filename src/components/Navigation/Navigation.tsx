@@ -1,6 +1,9 @@
+import { useRenderCounter } from '@hooks/useRenderCounter';
 import { NavLink } from 'react-router-dom';
 
 function Navigation() {
+  useRenderCounter('NavigationComponent', true);
+
   return (
     <nav className={'nav'}>
       <NavLink to='/' className={'nav-link'}>
