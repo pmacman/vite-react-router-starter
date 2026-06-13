@@ -1,4 +1,4 @@
-import { useRenderCounter } from '@hooks/useRenderCounter';
+import { useRenderCounter } from '@/hooks/useRenderCounter';
 import { NavLink } from 'react-router-dom';
 
 function Navigation() {

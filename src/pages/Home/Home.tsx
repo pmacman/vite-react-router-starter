@@ -1,5 +1,5 @@
-import type { SiteDetails } from '@models/SiteDetails';
-import { formatDate } from '@utils/dateFormatter';
+import type { SiteDetails } from '@/types/SiteDetails';
+import { formatDate } from '@/utils/dateFormatter';
 
 function Home() {
   const siteDetails: SiteDetails = {
