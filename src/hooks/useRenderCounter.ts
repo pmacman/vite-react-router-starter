@@ -1,8 +1,5 @@
-import { useRef } from 'react';
-
 /**
- * A custom React hook that tracks, increments, and logs the render count
- * of a component instance to the browser console.
+ * A custom React hook that logs each render of a component instance to the browser console.
  * @remarks
  * This hook will only log when running in a development environment (`import.meta.env.DEV === true`)
  * and if present, requires your build system's global log flag (`VITE_ENABLE_RENDER_LOGS`) to be set to `'true'`.
@@ -20,27 +17,12 @@ import { useRef } from 'react';
  * ```
  */
 export function useRenderCounter(componentName: string, isDebugging: boolean = true): void {
-  const renderCount = useRef<number>(0);
-  renderCount.current++;
-
-  // Vite compatible:
-  const isDev = import.meta.env.DEV === true;
-  // Node compatible:
-  // const isDev = process.env.NODE_ENV === 'development';
-
-  // Vite compatible:
+  const isDev = import.meta.env.DEV;
   const globalLogEnabled = import.meta.env.VITE_ENABLE_RENDER_LOGS === 'true';
-  // Create React App compatible:
-  // const globalLogEnabled = process.env.REACT_APP_ENABLE_RENDER_LOGS === 'true'
 
-  if (isDev && globalLogEnabled && isDebugging) {
-    console.log(
-      `%c[Render Trace] %c${componentName} %chas rendered %c${renderCount.current} %ctimes.`,
-      'color: #70a1ff; font-weight: bold;',
-      'color: #ff4757; font-weight: bold;',
-      'color: inherit;',
-      'color: #2ed573; font-weight: bold;',
-      'color: inherit;',
-    );
+  if (!isDev || !globalLogEnabled || !isDebugging) {
+    return;
   }
+
+  console.count(`[Render Trace] ${componentName}`);
 }
