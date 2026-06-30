@@ -5,11 +5,11 @@ function Navigation() {
   useRenderCounter('NavigationComponent', true);
 
   return (
-    <nav className={'nav'}>
-      <NavLink to='/' className={'nav-link'}>
+    <nav className="nav">
+      <NavLink to="/" className="nav-link">
         Home
       </NavLink>
-      <NavLink to='/about' className={'nav-link'}>
+      <NavLink to="/about" className="nav-link">
         About
       </NavLink>
     </nav>

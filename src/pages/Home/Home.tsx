@@ -10,7 +10,7 @@ function Home() {
 
   return (
     <>
-      <h1 data-testid={'title'}>{siteDetails.title}</h1>
+      <h1 data-testid="title">{siteDetails.title}</h1>
       <p>{siteDetails.description}</p>
       <p>{formatDate(siteDetails.date)}</p>
     </>
