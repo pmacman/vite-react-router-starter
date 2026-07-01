@@ -1,5 +1,4 @@
-import type { SiteDetails } from '@/types/SiteDetails';
-import { formatDate } from '@/utils/dateFormatter';
+import type { SiteDetails } from '@/types/site.types';
 
 function Home() {
   const siteDetails: SiteDetails = {
@@ -12,7 +11,6 @@ function Home() {
     <>
       <h1 data-testid="title">{siteDetails.title}</h1>
       <p>{siteDetails.description}</p>
-      <p>{formatDate(siteDetails.date)}</p>
     </>
   );
 }
